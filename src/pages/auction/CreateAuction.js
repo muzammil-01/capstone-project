@@ -37,6 +37,7 @@ export default function CreateAuction() {
       title,
       description,
       startingPrice,
+      bidStatus:"true",
       duration,
       attachment: imgUrl,
       createdBy

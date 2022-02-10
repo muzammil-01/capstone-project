@@ -15,7 +15,7 @@ export default function Navbar() {
 
     <nav className='navbar'>
         <div className='logo '>
-            <h2><span className='color'>Real</span> Estate</h2>
+            <h2 className='logo-heading'><span className='color'>Real</span> Estate</h2>
         </div>
 
         <div  className={

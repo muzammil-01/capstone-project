@@ -16,14 +16,17 @@ export default function Auction() {
   var use = projectAuth.currentUser;
 
 
-  const endAuction = async (id) => {
-
-    if (window.confirm("Are you sure you want to delete the Auction?")) {
-      await deleteDocument(id);
-    }
-
+  const endAuction = async (auctionId, status) => {
+    updateDocument(auctionId,{
+      bidStatus: status
+    })
   }
 
+  const handleDelete = async (id) =>{
+    if (window.confirm("Are you sure you want to delete the blog?")) {
+      await deleteDocument(id);
+  }
+}
 
 
 
@@ -50,20 +53,28 @@ export default function Auction() {
               <img src={auction?.attachment} alt="" />
               </div>
               <div className="content">
-                <h1>{auction?.title}</h1>
+                {/* <h1>{auction?.title}</h1> */}
+                <p><strong>Created By</strong> {auction?.createdBy?.displayName}</p>
                 <p>{auction?.description}</p>
                 <p><strong>Auction Duration:</strong> {auction?.duration} hours</p>
                 <div className="flex">
 
                 {user?.uid === auction?.createdBy.id &&
-                 <button className='btn' onClick={()=> endAuction(auction.id)}>end Auction</button>
+                  auction.bidStatus === "true" &&
+                 <button className='btn' onClick={()=> endAuction(auction.id, "false")}>end Auction</button>
                 }
 
-                 {user?.uid !== auction?.createdBy.id && show && <button className='btn' onClick={()=> bidAuction(auction.id, auction.startingPrice)}>Bid</button>}
+                {user?.uid === auction?.createdBy.id &&
+                  auction.bidStatus === "false" && 
+                   <button className='btn' onClick={()=> handleDelete(auction.id)}>
+                   Delete Auction</button>
+                }
+
+                 {user?.uid !== auction?.createdBy.id && show && auction.bidStatus==="true" && <button className='btn' onClick={()=> bidAuction(auction.id, auction.startingPrice)}>Bid</button>}
                 
                 <p>RS. {auction?.startingPrice}</p>
                 </div>
-                {auction.currWinner && <p>latest bid by: {auction.currWinner}</p>}
+                {auction.currWinner && <p>last bid by: {auction.currWinner}</p>}
               </div>
             </div>
           )

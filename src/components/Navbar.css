@@ -21,6 +21,13 @@ li{
     justify-content: start;
     align-items: center;
 }
+.logo-heading{
+  font-size: xx-large;
+  font-weight: bolder;
+}
+.color{
+  color: #66c20a;
+}
 .logo .img{
   width: 10%;
 }

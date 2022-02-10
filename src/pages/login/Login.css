@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+.auth-form{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+.auth-form input{
+    display: flex;
+    width: 20%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;  
+}
+
+
+
+.log {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 40px;
+}
+::placeholder {
+    color: black;
+    font-size: 20px;
+}
+@media only screen and (max-width: 1200px){
+    .auth-form button{
+        width: 20%;
+    }
+    .auth-form input{
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 587px){
+    .auth-form button{
+        width: 30%;
+        font-size: 15px;
+    }
+    .auth-form input{
+        width: 40%;
+    }
+}

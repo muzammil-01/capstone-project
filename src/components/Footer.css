@@ -1,0 +1,56 @@
+.footer{
+    display: grid;
+    grid-template-columns: 4rem 5fr 5fr 5fr 5fr 4rem;
+    background-color: rgb(230, 223, 223);
+    align-items: center;
+    left:0px;
+    bottom:0px;
+    width: 100%;
+}
+
+.explore{
+    cursor: pointer;
+    text-align: center;
+    grid-column: 2/3;
+}
+.offer{
+    cursor: pointer;
+    text-align: center;
+    grid-column: 3/4;
+}
+.profile{
+    cursor: pointer;
+    text-align: center;
+    grid-column: 4/5;
+}
+.auction{
+    cursor: pointer;
+    text-align: center;
+    grid-column: 5/6;
+}
+.auction img{
+    width: 30px;
+}
+@media only screen and (max-width:550px){
+    .footer{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 5fr 5fr 5fr 5fr;
+        position: relative;
+    }
+    .explore{
+        grid-column: 1/2;
+    }
+    .offer{
+        
+        grid-column: 2/3;
+    }
+    .profile{
+        
+        grid-column: 3/4;
+    }
+    .auction{
+        
+        grid-column: 4/5;
+    }
+}
